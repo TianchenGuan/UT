@@ -67,7 +67,6 @@
                 app:titleTextColor="@color/white"
                 app:titleCentered="true"
                 />
-
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
