@@ -1,7 +1,7 @@
 # UTreasure :sparkles:
 
 ## Introduction :book:
-Welcome to UTreasure :earth_asia:, a dedicated platform for a sustainable future. Our app is designed to provide a convenient and user-friendly environment for trading used items, serving both individual users and recycling stores. :handshake:
+Welcome to **UTreasure** :earth_asia:, a dedicated platform for a sustainable future. Our app is designed to provide a convenient and user-friendly environment for trading used items, serving both individual users and recycling stores. :handshake:
 
 ## Mission :dart:
 We are committed to tackling the challenges associated with the disposal and acquisition of secondhand items. By facilitating easier transactions and showcasing inventory, we strive to contribute to a greener Earth. :recycle:
