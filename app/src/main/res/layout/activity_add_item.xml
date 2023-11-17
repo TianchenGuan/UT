@@ -4,43 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/darkLogoGreen"
     tools:context=".AddItem">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/topBar"
-        android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
-        android:background="@color/logoGreen"
-        android:elevation="0dp"
-        android:fitsSystemWindows="true"
-        app:elevation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    <ImageButton
+        android:id="@+id/addItem_back"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/back_button_background"
+        android:src="@drawable/baseline_arrow_back_24" />
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/homepage_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="0dp"
-                app:title="UT"
-                app:titleTextColor="@color/white"
-                app:titleCentered="true"
-                />
-        </LinearLayout>
-    </com.google.android.material.appbar.AppBarLayout>
+    <EditText
+        android:id="@+id/custom_product_name"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="600dp"
+        android:textAlignment="center"
+        android:background="@drawable/edit_text_border"
+        android:hint="Enter your product name"/>
+
+    <EditText
+        android:id="@+id/custom_product_descriptions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginBottom="340dp"
+        android:textAlignment="center"
+        android:background="@drawable/edit_text_border"
+        android:hint="Describe your product information here"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AddItem"
-        android:textSize="36dp"
-        android:layout_centerInParent="true"
+        android:text="Upload Image"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="405dp"
+        android:textColor="@color/white"/>
+
+    <Button
+        android:id="@+id/custom_product_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="160dp"
+        android:layout_marginTop="420dp"
+        android:background="@drawable/baseline_cloud_upload_24"
         />
+
+    <EditText
+        android:id="@+id/custom_product_price"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="500dp"
+        android:layout_marginBottom="180dp"
+        android:textAlignment="center"
+        android:background="@drawable/edit_text_border"
+        android:hint="Price"/>
+
+    <EditText
+        android:id="@+id/custom_product_method"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="560dp"
+        android:layout_marginBottom="120dp"
+        android:textAlignment="center"
+        android:background="@drawable/edit_text_border"
+        android:hint="Payment Method"/>
+
+    <Button
+        android:id="@+id/custom_product_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="16dp"
+        android:text="POST"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

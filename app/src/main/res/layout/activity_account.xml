@@ -27,20 +27,83 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:elevation="0dp"
-                app:title="UT"
+                app:title="MY ACCOUNT"
                 app:titleTextColor="@color/white"
                 app:titleCentered="true"
                 />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
+    <ImageView
+        android:id="@+id/account_user_profile_img"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/baseline_default_profile_img_24"
+        android:background="@color/logoGreen"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"/>
+
     <TextView
+        android:id="@+id/account_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Account"
-        android:textSize="36dp"
-        android:layout_centerInParent="true"
-        />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="160dp"
+        android:text="USERNAME"/>
+
+    <TextView
+        android:id="@+id/account_infomation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="180dp"
+        android:text="FOLLOWERS: 107 | FOLLWING: 56 | FAVORITES"/>
+
+    <Button
+        android:id="@+id/account_myPost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MY POST"
+        android:layout_marginTop="210dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:id="@+id/account_purchases"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="PURCHASES"
+        android:layout_marginTop="260dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:id="@+id/account_selling"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SELLING"
+        android:layout_marginTop="310dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:id="@+id/account_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SETTINGS"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
+    <Button
+        android:id="@+id/account_help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HELP"
+        android:layout_marginTop="410dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"/>
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
