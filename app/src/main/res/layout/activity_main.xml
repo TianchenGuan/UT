@@ -7,40 +7,117 @@
     tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/topBar"
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="?android:attr/actionBarSize"
+        android:layout_height="wrap_content"
         android:background="@color/logoGreen"
-        android:elevation="0dp"
-        android:fitsSystemWindows="true"
-        app:elevation="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <com.google.android.material.appbar.MaterialToolbar
-                android:id="@+id/homepage_title"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:elevation="0dp"
-                app:title="UT"
-                app:titleTextColor="@color/white"
-                app:titleCentered="true"
-                />
-        </LinearLayout>
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="UT"
+                android:textColor="@color/white"/>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+
     </com.google.android.material.appbar.AppBarLayout>
-    
+
     <TextView
+        android:id="@+id/locationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HomePage"
-        android:textSize="36dp"
-        android:layout_centerInParent="true"
-        />
+        android:text="Location: MADISON"
+        android:layout_below="@id/appBarLayout"
+        android:layout_centerHorizontal="true"
+        android:padding="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+    <LinearLayout
+        android:id="@+id/buttonLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/locationText"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <Button
+            android:id="@+id/button_bym"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#B5F4EB"
+            android:text="Best near by me"
+            android:textColor="@color/darkLogoGreen" />
+
+        <Button
+            android:id="@+id/button_saved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Saved List"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/logoGreen"/>
+
+        <Button
+            android:id="@+id/button_mycart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/logoGreen"
+            android:text="My Cart"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/search_anything"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/buttonLayout"
+        android:background="@drawable/edit_text_border"
+        android:backgroundTint="#D9F4EF"
+        android:drawablePadding="10dp"
+        android:hint="Search for anything"
+        android:textColorHint="@color/darkLogoGreen"
+        android:inputType="text"
+        android:padding="16dp" />
+
+    <TextView
+        android:id="@+id/categories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:layout_marginLeft="15dp"
+        android:text="Categories: "
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/recent_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="370dp"
+        android:layout_marginLeft="15dp"
+        android:text="Your rencently viewed items: "
+        android:textSize="18sp"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/may_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="500dp"
+        android:layout_marginLeft="15dp"
+        android:text="You may like: "
+        android:textSize="18sp"
+        android:textStyle="bold"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"
