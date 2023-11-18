@@ -23,7 +23,6 @@ public class MainActivity extends AppCompatActivity {
         categoriesAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Create an Intent to start the new activity
                 Intent intent = new Intent(MainActivity.this, Category.class);
                 startActivity(intent);
             }
