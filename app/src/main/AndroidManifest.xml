@@ -28,6 +28,8 @@
             android:name=".Login"
             android:exported="false" />
         <activity
+            android:name=".Category" />
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
