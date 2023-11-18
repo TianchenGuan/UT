@@ -1,15 +1,30 @@
 package com.cs407.ut;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
 
+import com.cs407.ut.adapter.LeftListAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Group extends AppCompatActivity {
+
+    private View rootView;
+    private RecyclerView leftRecyclerView;
+    private LeftListAdapter mLeftListAdapter;
+
+    private List<String> leftDataList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +43,6 @@ public class Group extends AppCompatActivity {
                 finish();
                 return true;
             } else if (title.equals("Group")) {
-                // No action needed if already on group
                 return true;
             } else if (title.equals("Add")) {
                 startActivity(new Intent(getApplicationContext(), AddItem.class));
@@ -49,7 +63,6 @@ public class Group extends AppCompatActivity {
 
             return false;
         });
-
 
     }
 

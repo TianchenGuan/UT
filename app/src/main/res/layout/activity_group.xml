@@ -6,6 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".Group">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/topBar"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/groupLeft"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/ListGreen"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/group_list"
+                android:layout_width="match_parent"
+                android:layout_height="431dp"
+                tools:listitem="@layout/left_list_item"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/group"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@color/white" >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
+    </LinearLayout>
+
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/topBar"
         android:layout_width="match_parent"
@@ -27,20 +63,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:elevation="0dp"
-                app:title="UT"
+                app:title="UT Group"
                 app:titleTextColor="@color/white"
                 app:titleCentered="true"
                 />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Group"
-        android:textSize="36dp"
-        android:layout_centerInParent="true"
-        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

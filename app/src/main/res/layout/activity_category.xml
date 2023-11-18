@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Account">
+    tools:context=".Category">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/topBar"
@@ -27,83 +27,113 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:elevation="0dp"
-                app:title="MY ACCOUNT"
+                app:title="UT"
                 app:titleTextColor="@color/white"
                 app:titleCentered="true"
                 />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ImageView
-        android:id="@+id/account_user_profile_img"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:src="@drawable/baseline_default_profile_img_24"
-        android:background="@color/logoGreen"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"/>
-
-    <TextView
-        android:id="@+id/account_username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="160dp"
-        android:text="USERNAME"/>
-
-    <TextView
-        android:id="@+id/account_infomation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="180dp"
-        android:text="FOLLOWERS: 107 | FOLLWING: 56 | FAVORITES"/>
-
     <Button
-        android:id="@+id/account_myPost"
+        android:id="@+id/button_toy"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="MY POST"
-        android:layout_marginTop="210dp"
+        android:text="Toys"
+        android:layout_marginTop="70dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
+        android:layout_marginRight="30dp"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
 
     <Button
-        android:id="@+id/account_purchases"
+        android:id="@+id/button_art"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="PURCHASES"
-        android:layout_marginTop="260dp"
+        android:text="Art and Crafts"
+        android:layout_marginTop="130dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
+        android:layout_marginRight="30dp"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
 
     <Button
-        android:id="@+id/account_selling"
+        android:id="@+id/button_book"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SELLING"
+        android:text="Books and Magazines"
+        android:layout_marginTop="190dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:id="@+id/button_clothing"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clothing"
+        android:layout_marginTop="250dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/button_electronics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Electronics"
         android:layout_marginTop="310dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
-
+        android:layout_marginRight="30dp"
+        android:textStyle="bold"
+        android:textSize="18sp" />
     <Button
-        android:id="@+id/account_setting"
+        android:id="@+id/button_home"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SETTINGS"
-        android:layout_marginTop="360dp"
+        android:text="Home and Garden"
+        android:layout_marginTop="370dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
+        android:layout_marginRight="30dp"
+        android:textStyle="bold"
+        android:textSize="18sp" />
 
     <Button
-        android:id="@+id/account_help"
+        android:id="@+id/button_travel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="HELP"
-        android:layout_marginTop="410dp"
         android:layout_marginLeft="30dp"
-        android:layout_marginRight="30dp"/>
+        android:layout_marginTop="430dp"
+        android:layout_marginRight="30dp"
+        android:text="Travel"
+        android:textStyle="bold"
+        android:textSize="18sp" />
 
+    <Button
+        android:id="@+id/button_beauty"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="490dp"
+        android:layout_marginRight="30dp"
+        android:text="Health and Beauty"
+        android:textStyle="bold"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/button_else"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="550dp"
+        android:layout_marginRight="30dp"
+        android:text="Everything else"
+        android:textStyle="bold"
+        android:textSize="18sp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:layout_width="match_parent"

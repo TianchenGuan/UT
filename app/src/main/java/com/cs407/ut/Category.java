@@ -1,41 +1,27 @@
 package com.cs407.ut;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity {
-
-    @Override
+public class Category extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        Button categoriesAllButton = findViewById(R.id.categories_all);
-        categoriesAllButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, Category.class);
-                startActivity(intent);
-            }
-        });
+        setContentView(R.layout.activity_category);
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationBar);
-        bottomNavigationView.setSelectedItemId(R.id.bottom_home);
-
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             String title = item.getTitle().toString();
 
             if (title.equals("Home")) {
-                // No action needed if already on home
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                overridePendingTransition(R.anim.silde_in_right, R.anim.silde_out_left);
+                finish();
                 return true;
             } else if (title.equals("Group")) {
                 startActivity(new Intent(getApplicationContext(), Group.class));
@@ -66,5 +52,8 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
+
+
 
 }
