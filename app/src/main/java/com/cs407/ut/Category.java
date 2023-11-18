@@ -14,7 +14,6 @@ public class Category extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationBar);
-        //bottomNavigationView.setSelectedItemId(R.id.bottom_add);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             String title = item.getTitle().toString();
