@@ -39,7 +39,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/topBar"
-        android:layout_above="@id/bottomNavigationBar"
         android:background="@color/ListGreen"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
