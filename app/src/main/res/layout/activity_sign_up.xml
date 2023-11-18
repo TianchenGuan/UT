@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/lightGreen">
+
+    <View
+        android:id="@+id/circleView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/login_logo"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UT"
+        android:textSize="52sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:fontFamily="@font/LuckiestGuy"
+        app:layout_constraintTop_toTopOf="@id/circleView"
+        app:layout_constraintBottom_toBottomOf="@id/circleView"
+        app:layout_constraintStart_toStartOf="@id/circleView"
+        app:layout_constraintEnd_toEndOf="@id/circleView"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UT"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:fontFamily="@font/LuckiestGuy"
+        app:layout_constraintTop_toTopOf="@id/circleView"
+        app:layout_constraintBottom_toBottomOf="@id/circleView"
+        app:layout_constraintStart_toStartOf="@id/circleView"
+        app:layout_constraintEnd_toEndOf="@id/circleView"
+        />
+
+    <TextView
+        android:id="@+id/SignUpJoinUsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JOIN US RIGHT NOW!"
+        android:layout_below="@id/circleView"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/LuckiestGuy"
+        app:layout_constraintTop_toBottomOf="@id/circleView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <TextView
+        android:id="@+id/createSignUpText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CREATE A NEW ACCOUNT"
+        android:layout_below="@id/circleView"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/LuckiestGuy"
+        app:layout_constraintTop_toBottomOf="@id/SignUpJoinUsText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"/>
+
+    <EditText
+        android:id="@+id/editSignUpUsername"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:hint="USERNAME"
+        android:inputType="textEmailAddress"
+        android:padding="12dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/createSignUpText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <EditText
+        android:id="@+id/editSignUpPhoneNumber"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/editSignUpUsername"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <EditText
+        android:id="@+id/editSignUpPassword"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textSize="14sp"
+        app:layout_constraintTop_toBottomOf="@id/editSignUpPhoneNumber"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+    <EditText
+        android:id="@+id/editReSignUpPassword"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="24dp"
+        android:hint="PHONE NUMBER"
+        android:inputType="textPassword"
+        android:padding="12dp"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editSignUpPassword" />
+
+    <Button
+        android:id="@+id/buttonSignUp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="SIGN UP"
+        android:textColor="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@id/editReSignUpPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"/>
+
+
+    <TextView
+        android:id="@+id/noAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ALREADY HAVE AN ACCOUNT?"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/LuckiestGuy"
+        app:layout_constraintTop_toBottomOf="@id/buttonSignUp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/toSignIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLICK HERE TO LOG IN"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/LuckiestGuy"
+        app:layout_constraintTop_toBottomOf="@id/noAccount"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

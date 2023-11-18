@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/drawable/button_background.xml -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Button pressed color -->
+    <item android:state_pressed="true">
+        <shape>
+            <solid android:color="#C4FCF0" />
+        </shape>
+    </item>
+    <!-- Button default color -->
+    <item name="lightGreen">@color</item>
+</selector>
+
+

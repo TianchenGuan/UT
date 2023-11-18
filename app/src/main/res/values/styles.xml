@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTextStyle">
+        <item name="android:fontFamily">@font/my_font</item>
+    </style>
+</resources>

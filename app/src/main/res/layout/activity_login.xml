@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login">
+    android:background="@color/logoGreen">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tvUTreasure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UTREASURE"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:fontFamily="@font/LuckiestGuy"
+        />
+
+    <Button
+        android:id="@+id/btnLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Log in"
+        android:layout_below="@id/tvUTreasure"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="32dp"
+        android:backgroundTint="@color/lightGreen"
+        android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnLogin"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginRight="16dp"
+        android:backgroundTint="@color/lightGreen"
+        android:text="Sign up"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/tvNoAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No account? Click here to sign up now!"
+        android:layout_below="@id/btnSignUp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        android:textColor="@color/white"
+        android:fontFamily="@font/LuckiestGuy"/>
+
+</RelativeLayout>
