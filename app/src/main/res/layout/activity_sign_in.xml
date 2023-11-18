@@ -22,45 +22,43 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/luckiestguy"
         android:text="UT"
+        android:textColor="@color/black"
         android:textSize="52sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
-        android:fontFamily="@font/LuckiestGuy"
-        app:layout_constraintTop_toTopOf="@id/circleView"
         app:layout_constraintBottom_toBottomOf="@id/circleView"
-        app:layout_constraintStart_toStartOf="@id/circleView"
         app:layout_constraintEnd_toEndOf="@id/circleView"
-        />
+        app:layout_constraintStart_toStartOf="@id/circleView"
+        app:layout_constraintTop_toTopOf="@id/circleView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/luckiestguy"
         android:text="UT"
+        android:textColor="@color/white"
         android:textSize="50sp"
         android:textStyle="bold"
-        android:textColor="@color/white"
-        android:fontFamily="@font/LuckiestGuy"
-        app:layout_constraintTop_toTopOf="@id/circleView"
         app:layout_constraintBottom_toBottomOf="@id/circleView"
-        app:layout_constraintStart_toStartOf="@id/circleView"
         app:layout_constraintEnd_toEndOf="@id/circleView"
-        />
+        app:layout_constraintStart_toStartOf="@id/circleView"
+        app:layout_constraintTop_toTopOf="@id/circleView" />
 
     <TextView
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="WELCOME TO UTREASURE"
         android:layout_below="@id/circleView"
         android:layout_centerHorizontal="true"
-        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/luckiestguy"
+        android:text="WELCOME TO UTREASURE"
         android:textColor="@color/white"
-        android:fontFamily="@font/LuckiestGuy"
-        app:layout_constraintTop_toBottomOf="@id/circleView"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/circleView" />
 
     <EditText
         android:id="@+id/editTextEmail"
@@ -108,26 +106,26 @@
         android:id="@+id/noAccount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/luckiestguy"
         android:text="NO ACCOUNT?"
-        android:textSize="16sp"
         android:textColor="@color/white"
-        android:fontFamily="@font/LuckiestGuy"
-        app:layout_constraintTop_toBottomOf="@id/buttonSignIn"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/buttonSignIn" />
 
     <TextView
         android:id="@+id/toSignUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="NO ACCOUNT?"
-        android:textSize="16sp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/luckiestguy"
+        android:text="CLICK HERE TO SIGN UP NOW!"
         android:textColor="@color/white"
-        android:fontFamily="@font/LuckiestGuy"
-        app:layout_constraintTop_toBottomOf="@id/noAccount"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/noAccount" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
