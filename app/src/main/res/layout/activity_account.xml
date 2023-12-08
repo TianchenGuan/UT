@@ -28,6 +28,7 @@
                 android:layout_height="match_parent"
                 android:elevation="0dp"
                 app:title="MY ACCOUNT"
+                app:titleTextAppearance="@style/AccountTitleStyle"
                 app:titleTextColor="@color/white"
                 app:titleCentered="true"
                 />
@@ -45,6 +46,7 @@
 
     <TextView
         android:id="@+id/account_username"
+        android:fontFamily="@font/luckiestguy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -57,7 +59,8 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
-        android:text="FOLLOWERS: 107 | FOLLWING: 56 | FAVORITES"/>
+        android:fontFamily="@font/luckiestguy"
+        android:text="FOLLOWERS: 107 | FOLLOWING: 56 | FAVORITES"/>
 
     <Button
         android:id="@+id/account_myPost"

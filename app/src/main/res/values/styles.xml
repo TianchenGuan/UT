@@ -3,4 +3,9 @@
     <style name="MyTextStyle">
         <item name="android:fontFamily">@font/luckiestguy</item>
     </style>
+
+    <style name="AccountTitleStyle">
+        <item name="android:fontFamily">@font/luckiestguy</item>
+        <item name="android:textSize">25dp</item>
+    </style>
 </resources>

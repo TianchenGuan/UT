@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -15,6 +17,16 @@ public class Account extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
+
+        Button myPostButton = findViewById(R.id.account_myPost);
+        myPostButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Start the AccountMyPost Activity
+                Intent intent = new Intent(Account.this, AccountMyPost.class);
+                startActivity(intent);
+            }
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationBar);
         bottomNavigationView.setSelectedItemId(R.id.bottom_account);
@@ -50,4 +62,5 @@ public class Account extends AppCompatActivity {
             return false;
         });
     }
+
 }
