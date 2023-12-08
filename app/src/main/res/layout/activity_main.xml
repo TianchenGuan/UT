@@ -25,6 +25,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="UT"
+                android:fontFamily="@font/luckiestguy"
+                android:textSize="40dp"
                 android:textColor="@color/white"/>
 
         </com.google.android.material.appbar.MaterialToolbar>
