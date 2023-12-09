@@ -33,6 +33,41 @@
         <activity
             android:name=".Category" />
         <activity
+            android:name=".ToyActivity" />
+
+        <activity
+            android:name=".ArtCraftActivity" />
+
+        <activity
+            android:name=".BookMagazineActivity" />
+
+        <activity
+            android:name=".ClothingActivity" />
+
+        <activity
+            android:name=".ElectronicsActivity" />
+
+        <activity
+            android:name=".ElseActivity" />
+
+        <activity
+            android:name=".HealthBeautyActivity" />
+
+        <activity
+            android:name=".HomeGardenActivity" />
+
+        <activity
+            android:name=".TravelActivity" />
+
+        <activity
+            android:name=".LikeAll" />
+
+        <activity
+            android:name=".ViewAll" />
+
+
+
+        <activity
             android:name=".Login"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
