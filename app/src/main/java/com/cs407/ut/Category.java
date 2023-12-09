@@ -29,7 +29,7 @@ public class Category extends AppCompatActivity {
                 finish();
                 return true;
             } else if (title.equals("Add")) {
-                startActivity(new Intent(getApplicationContext(), AddItem.class));
+                startActivity(new Intent(getApplicationContext(), PostActivity.class));
                 overridePendingTransition(R.anim.silde_in_right, R.anim.silde_out_left);
                 finish();
                 return true;

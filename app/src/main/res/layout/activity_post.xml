@@ -20,33 +20,23 @@
         android:id="@+id/custom_product_name"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_below="@+id/custom_product_img"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="10dp"
-        android:layout_marginBottom="600dp"
         android:background="@drawable/edit_text_border"
         android:fontFamily="@font/luckiestguy"
-        android:hint="Enter your product name"
+        android:hint="Enter your title"
         android:textAlignment="center" />
 
-    <EditText
-        android:id="@+id/custom_product_descriptions"
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="140dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="340dp"
-        android:background="@drawable/edit_text_border"
-        android:fontFamily="@font/luckiestguy"
-        android:hint="Describe your product information here"
-        android:textAlignment="center" />
 
     <TextView
+        android:id="@+id/tv_upload_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/addItem_back"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="405dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/luckiestguy"
         android:text="Upload Image"
         android:textColor="@color/white" />
@@ -55,20 +45,23 @@
         android:id="@+id/custom_product_img"
         android:layout_width="80dp"
         android:layout_height="80dp"
+        android:layout_below="@+id/tv_upload_label"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="430dp"
+        android:layout_marginTop="10dp"
         android:scaleType="fitXY"
         android:src="@drawable/ic_baseline_image_24" />
 
-    <EditText
+    <Spinner
         android:id="@+id/custom_product_price"
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_below="@+id/custom_product_name"
         android:layout_marginLeft="10dp"
-        android:layout_marginTop="520dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="10dp"
         android:layout_marginBottom="160dp"
         android:background="@drawable/edit_text_border"
+        android:entries="@array/type"
         android:fontFamily="@font/luckiestguy"
         android:hint="Price"
         android:textAlignment="center" />
@@ -84,21 +77,5 @@
         android:fontFamily="@font/luckiestguy"
         android:text="POST" />
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/bottomNavigationBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/bottom_background"
-        android:elevation="2dp"
-        app:itemIconSize="36dp"
-        app:itemIconTint="@drawable/item_selector"
-        app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"
-        app:menu="@menu/bottom_menu" />
 
 </RelativeLayout>

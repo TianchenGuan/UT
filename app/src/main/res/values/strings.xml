@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">UTreasure</string>
+    <string-array name="type">
+        <item>Fashion</item>
+        <item>Second-hand</item>
+        <item>Electronic</item>
+        <item>Life</item>
+    </string-array>
 </resources>

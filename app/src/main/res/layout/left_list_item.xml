@@ -5,10 +5,11 @@
 
     <TextView
         android:id="@+id/name"
-        android:layout_width="100dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+
         android:text="xxx"
         android:paddingLeft="10dp"
-        android:gravity="center_vertical"/>
+        android:gravity="center" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="right"
+    android:orientation="vertical"
+    android:paddingVertical="10dp">
+
+    <RelativeLayout
+        android:id="@+id/right"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp">
+
+        <TextView
+            android:id="@+id/tv_right_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/tv_message"
+            android:layout_marginBottom="1dp"
+            android:text="xxx"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/tv_message"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_alignTop="@id/iv_face1"
+            android:layout_toLeftOf="@+id/iv_face1"
+            android:background="@color/logoGreen"
+            android:gravity="center"
+            android:paddingHorizontal="15dp"
+            android:text="xx"
+            android:textColor="#000" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_face1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/tv_right_name"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_face_24" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/left"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left|center_vertical"
+        android:orientation="horizontal"
+        android:paddingVertical="10dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_left_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/tv_message1"
+            android:layout_marginBottom="1dp"
+            android:text="xxx"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_face"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_below="@id/tv_left_name"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_face_24" />
+
+        <TextView
+            android:id="@+id/tv_message1"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+
+            android:layout_alignTop="@id/iv_face"
+            android:layout_toRightOf="@id/iv_face"
+            android:background="#91C2F3"
+            android:gravity="center"
+            android:paddingHorizontal="15dp"
+            android:text="你好"
+            android:textColor="#000" />
+
+
+    </RelativeLayout>
+</LinearLayout>

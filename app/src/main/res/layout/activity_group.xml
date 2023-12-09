@@ -24,8 +24,8 @@
                 android:id="@+id/group_list"
                 android:layout_width="match_parent"
                 android:layout_height="431dp"
-                tools:listitem="@layout/left_list_item"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/left_list_item" />
         </LinearLayout>
 
         <LinearLayout
@@ -33,11 +33,14 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3"
-            android:background="@color/white" >
+            android:background="@color/white">
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_post"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
         </LinearLayout>
 
     </LinearLayout>
@@ -53,6 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,27 +68,26 @@
                 android:layout_height="match_parent"
                 android:elevation="0dp"
                 app:title="UT Group"
-                app:titleTextColor="@color/white"
                 app:titleCentered="true"
-                />
+                app:titleTextColor="@color/white" />
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/bottomNavigationBar"
         android:layout_alignParentBottom="true"
-        android:background="@drawable/bottom_background"
-        android:layout_marginEnd="10dp"
         android:layout_marginStart="10dp"
-        android:layout_marginBottom="30dp"
         android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/bottom_background"
         android:elevation="2dp"
-        app:menu="@menu/bottom_menu"
         app:itemIconSize="36dp"
         app:itemIconTint="@drawable/item_selector"
         app:itemRippleColor="@android:color/transparent"
-        app:labelVisibilityMode="unlabeled"/>
+        app:labelVisibilityMode="unlabeled"
+        app:menu="@menu/bottom_menu" />
 
 </RelativeLayout>
