@@ -6,4 +6,17 @@
         <item>Electronic</item>
         <item>Life</item>
     </string-array>
+
+    <string-array name="category_array">
+        <item>Toys</item>
+        <item>Art and Crafts</item>
+        <item>Books and Magazines</item>
+        <item>Clothing</item>
+        <item>Electronics</item>
+        <item>Home and Garden</item>
+        <item>Travel</item>
+        <item>Health and Beauty</item>
+        <item>Everything Else</item>
+    </string-array>
+
 </resources>
