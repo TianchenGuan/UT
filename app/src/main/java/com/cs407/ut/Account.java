@@ -1,11 +1,9 @@
 package com.cs407.ut;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -18,15 +16,46 @@ public class Account extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
 
+        // My Post
         Button myPostButton = findViewById(R.id.account_myPost);
         myPostButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Start the AccountMyPost Activity
                 Intent intent = new Intent(Account.this, AccountMyPost.class);
                 startActivity(intent);
             }
         });
+
+        // Purchases
+        Button purchaseButton = findViewById(R.id.account_purchases);
+        purchaseButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Account.this, Purchase.class);
+                startActivity(intent);
+            }
+        });
+
+        // Sell
+        Button sellButton = findViewById(R.id.account_selling);
+        sellButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Account.this, Sell.class);
+                startActivity(intent);
+            }
+        });
+
+        //Help
+        Button helpButton = findViewById(R.id.account_help);
+        helpButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Account.this, Help.class);
+                startActivity(intent);
+            }
+        });
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationBar);
         bottomNavigationView.setSelectedItemId(R.id.bottom_account);

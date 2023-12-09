@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/logoGreen"
+    tools:context=".Help">
+
+    <TextView
+        android:id="@+id/help_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/luckiestguy"
+        android:text="UTreasure User Help Guide"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/help_intro"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/luckiestguy"
+        android:text="Welcome to UTreasure, the community-driven platform dedicated to buying and selling used goods. Our app provides a simple, efficient, and cost-effective way to give your items a second life while finding great deals."
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/help_des"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="20dp"
+        android:fontFamily="@font/luckiestguy"
+        android:text="Uploading Goods for Sale:
+
+Listing Items: To sell an item, tap the 'Sell' button and fill out the item's details, including name, description, price, and upload clear images. Once your listing is live, potential buyers can view and contact you.
+Managing Listings: You can manage your listings through your profile, update item details, or remove listings if an item is sold or no longer available.
+Buying Goods:
+
+Finding the Right Item: Use search and filter tools to find exactly what you're looking for. Check the item details and seller ratings for a secure purchase decision.
+Contacting Sellers: Use the in-app messaging feature to contact sellers. Discuss product details, negotiate prices, or arrange a meet-up if necessary.
+"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_intro" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/baseline_bubble_chart_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/help_des" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
