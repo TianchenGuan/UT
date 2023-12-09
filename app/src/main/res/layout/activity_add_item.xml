@@ -58,7 +58,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="430dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_image_24" />
+        android:src="@drawable/upload_pic" />
 
     <EditText
         android:id="@+id/custom_product_price"
