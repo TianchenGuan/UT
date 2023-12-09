@@ -1,7 +1,7 @@
 package com.cs407.ut;
 
 public class ItemDataClass {
-    private String itmeName, imageURL, itemDescriptions, itemPrice;
+    private String itmeName, imageURL, itemDescriptions, itemPrice, itemCategory;
 
     public ItemDataClass(){
 
@@ -39,10 +39,19 @@ public class ItemDataClass {
         this.itemPrice = itemPrice;
     }
 
-    public ItemDataClass(String itmeName, String imageURL, String itemDescriptions, String itemPrice) {
+    public String getItemCategory() {
+        return itemCategory;
+    }
+
+    public void setItemCategory(String itemCategory) {
+        this.itemPrice = itemCategory;
+    }
+
+    public ItemDataClass(String itmeName, String imageURL, String itemDescriptions, String itemPrice, String itemCategory) {
         this.itmeName = itmeName;
         this.imageURL = imageURL;
         this.itemDescriptions = itemDescriptions;
         this.itemPrice = itemPrice;
+        this.itemCategory = itemCategory;
     }
 }

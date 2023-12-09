@@ -17,42 +17,19 @@
         android:textSize="42sp"
         android:textStyle="bold" />
 
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log in"
+        android:text="Log in/Sign up with Google"
         android:fontFamily="@font/luckiestguy"
-        android:layout_below="@id/tvUTreasure"
+        android:layout_alignParentBottom="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="100dp"
         android:backgroundTint="@color/lightGreen"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black" />
 
-    <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnLogin"
-        android:fontFamily="@font/luckiestguy"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginRight="16dp"
-        android:backgroundTint="@color/lightGreen"
-        android:text="Sign up"
-        android:textColor="@color/black"/>
-
-    <TextView
-        android:id="@+id/tvNoAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnSignUp"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/luckiestguy"
-        android:text="No account? Click here to sign up now!"
-        android:textColor="@color/white"
-        android:textSize="16sp" />
 
 </RelativeLayout>

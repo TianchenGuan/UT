@@ -60,7 +60,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="180dp"
         android:fontFamily="@font/luckiestguy"
-        android:text="FOLLOWERS: 107 | FOLLOWING: 56 | FAVORITES"/>
+        android:text="FOLLOWERS: 107 | FOLLOWING: 56 | FAVORITES: 78"/>
 
     <Button
         android:id="@+id/account_myPost"

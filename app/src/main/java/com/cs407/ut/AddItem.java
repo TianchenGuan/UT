@@ -19,8 +19,10 @@ import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.cs407.ut.adapter.PostCategoryAdapter;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -37,6 +39,7 @@ public class AddItem extends AppCompatActivity {
     EditText uploadName;
     EditText uploadDescriptions;
     EditText uploadPrice;
+    Spinner categorySpinner;
     private Uri imageUri;
     final private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
     final private StorageReference storageReference = FirebaseStorage.getInstance().getReference();
@@ -48,6 +51,10 @@ public class AddItem extends AppCompatActivity {
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationBar);
         bottomNavigationView.setSelectedItemId(R.id.bottom_add);
+
+        categorySpinner = findViewById(R.id.category_spinner);
+        PostCategoryAdapter categoryAdapter = new PostCategoryAdapter(this, categorySpinner);
+
 
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             String title = item.getTitle().toString();
@@ -131,6 +138,7 @@ public class AddItem extends AppCompatActivity {
         String itemName = uploadName.getText().toString();
         String itemDescriptions = uploadDescriptions.getText().toString();
         String itemPrice = uploadPrice.getText().toString();
+        String itemCategory = categorySpinner.getSelectedItem().toString(); // Get selected category
         final StorageReference imageReference = storageReference.child(System.currentTimeMillis() + "." + getFileExtension(uri));
 
         imageReference.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -139,7 +147,7 @@ public class AddItem extends AppCompatActivity {
                 imageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                     @Override
                     public void onSuccess(Uri uri) {
-                        ItemDataClass dataClass = new ItemDataClass(itemName, uri.toString(), itemDescriptions, itemPrice);
+                        ItemDataClass dataClass = new ItemDataClass(itemName, uri.toString(), itemDescriptions, itemPrice, itemCategory); // Include category
                         String key = databaseReference.push().getKey();
                         databaseReference.child(key).setValue(dataClass);
                         Toast.makeText(AddItem.this, "Uploaded", Toast.LENGTH_SHORT).show();
@@ -156,6 +164,7 @@ public class AddItem extends AppCompatActivity {
             }
         });
     }
+
 
     private String getFileExtension(Uri fileUri){
         ContentResolver contentResolver = getContentResolver();
