@@ -1,4 +1,6 @@
 package com.cs407.ut;
 
-public class SignUp {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class SignUp extends AppCompatActivity {
 }
