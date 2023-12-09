@@ -56,9 +56,9 @@
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="43dp"
+        android:layout_marginTop="430dp"
         android:scaleType="fitXY"
-        android:src="@drawable/ic_baseline_face_24"/>
+        android:src="@drawable/ic_baseline_image_24" />
 
     <EditText
         android:id="@+id/custom_product_price"
