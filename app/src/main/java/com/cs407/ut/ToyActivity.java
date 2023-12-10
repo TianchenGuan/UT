@@ -52,7 +52,7 @@ public class ToyActivity extends AppCompatActivity {
                 dataList.clear();
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
                     ItemDataClass dataClass = dataSnapshot.getValue(ItemDataClass.class);
-                    Log.d("ToyActivity", "Item Category: " + dataClass.getItemCategory());
+                    Log.d("ToyActivity", "Item Category: " + dataClass.toString());
                     if ("Toys".equals(dataClass.getItemCategory())) {
                         dataList.add(dataClass);
                     }

@@ -41,16 +41,19 @@ public class DetailActivity extends AppCompatActivity {
         TextView titleView = findViewById(R.id.title);
         TextView priceView = findViewById(R.id.price);
         TextView descriptionView = findViewById(R.id.description);
+        TextView catView = findViewById(R.id.category);
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             String title = extras.getString("title");
             String price = extras.getString("price");
             String description = extras.getString("description");
+            String category = extras.getString("category");
 
             titleView.setText(title);
             priceView.setText(price);
             descriptionView.setText(description);
+            catView.setText(category);
         }
     }
 

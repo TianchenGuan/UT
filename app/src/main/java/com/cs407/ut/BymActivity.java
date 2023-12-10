@@ -54,9 +54,9 @@ public class BymActivity extends AppCompatActivity {
                     ItemDataClass dataClass = dataSnapshot.getValue(ItemDataClass.class);
                     dataList.add(dataClass);
                 }
-                if (dataList.size() > 10) {
+                if (dataList.size() > 6) {
                     Collections.shuffle(dataList); // Shuffle the list
-                    dataList = new ArrayList<>(dataList.subList(0, 10));
+                    dataList = new ArrayList<>(dataList.subList(0, 6));
                 }
                 adapter.notifyDataSetChanged();
             }

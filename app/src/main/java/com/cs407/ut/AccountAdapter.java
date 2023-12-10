@@ -47,6 +47,7 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.MyViewHo
                 intent.putExtra("title", item.getItmeName());
                 intent.putExtra("price", item.getItemPrice());
                 intent.putExtra("description", item.getItemDescriptions());
+                intent.putExtra("category", item.getItemCategory());
                 context.startActivity(intent);
             }
         });
