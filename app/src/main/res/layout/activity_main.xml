@@ -35,13 +35,15 @@
 
     <TextView
         android:id="@+id/locationText"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Location: MADISON"
         android:layout_below="@id/appBarLayout"
         android:layout_centerHorizontal="true"
         android:padding="16dp"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="Location: " />
 
     <LinearLayout
         android:id="@+id/buttonLayout"
@@ -101,52 +103,76 @@
         android:textSize="18sp"
         android:textStyle="bold"/>
 
-    <Button
-        android:id="@+id/categories_all"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/buttonLayout_cat"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="240dp"
-        android:backgroundTint="@color/logoGreen"
-        android:text="See All"
-        android:textColor="@color/white" />
+        android:layout_below="@id/categories"
+        android:orientation="horizontal"
+        android:padding="5dp">
 
-    <TextView
-        android:id="@+id/recent_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
-        android:layout_marginLeft="15dp"
-        android:text="Your rencently viewed items: "
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        <Button
+            android:id="@+id/button_cat_toy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Toys"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/logoGreen" />
 
-    <Button
-        android:id="@+id/recent_view_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="370dp"
-        android:backgroundTint="@color/logoGreen"
-        android:text="See All"
-        android:textColor="@color/white" />
+        <Button
+            android:id="@+id/button_cat_cloth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clothing"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/logoGreen"/>
+
+        <Button
+            android:id="@+id/button_cat_travel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Travel"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/logoGreen"/>
+
+
+        <Button
+            android:id="@+id/categories_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/logoGreen"
+            android:text="See All"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
 
     <TextView
         android:id="@+id/may_like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="15dp"
+        android:layout_below="@id/categories"
         android:text="You may like: "
         android:textSize="18sp"
         android:textStyle="bold"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/may_like"
+        android:layout_above="@id/bottomNavigationBar"
+        android:layout_marginTop="20dp" />
 
     <Button
         android:id="@+id/may_like_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="500dp"
+        android:layout_below="@id/buttonLayout_cat"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/logoGreen"
         android:text="See All"
         android:textColor="@color/white" />

@@ -73,6 +73,9 @@
             android:name=".ElseActivity" />
 
         <activity
+            android:name=".DetailActivity" />
+
+        <activity
             android:name=".HealthBeautyActivity" />
 
         <activity

@@ -75,7 +75,7 @@ public class Login extends AppCompatActivity {
                 finish();
 
             } catch (ApiException e) {
-                Intent intent = new Intent(Login.this, Login.class);
+                Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
                 System.out.println("Login Failed");
                 System.out.println(e);

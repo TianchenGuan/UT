@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -24,10 +26,31 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.FirebaseApp;
 
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+import android.content.Intent;
+
 public class MainActivity extends AppCompatActivity {
     private GoogleMap mMap;
     private FusedLocationProviderClient mFusedLocationProviderClient;
     private static final int PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION = 12;
+
+    RecyclerView recyclerView;
+    ArrayList<ItemDataClass> dataList;
+    AccountAdapter adapter;
+    final private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,14 +106,64 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button viewAllButton = findViewById(R.id.recent_view_all);
-        viewAllButton.setOnClickListener(new View.OnClickListener() {
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        dataList = new ArrayList<>();
+        adapter = new AccountAdapter(dataList, this);
+        recyclerView.setAdapter(adapter);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                dataList.clear();
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    ItemDataClass dataClass = dataSnapshot.getValue(ItemDataClass.class);
+                    dataList.add(dataClass);
+                }
+                if (dataList.size() > 4) {
+                    Collections.shuffle(dataList); // Shuffle the list
+                    dataList = new ArrayList<>(dataList.subList(0, 4));
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(MainActivity.this, "error about DB", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+        Button catToyButton = findViewById(R.id.button_cat_toy);
+        catToyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ViewAll.class);
+                Intent intent = new Intent(MainActivity.this, ToyActivity.class);
                 startActivity(intent);
             }
         });
+
+        Button catTravellButton = findViewById(R.id.button_cat_travel);
+        catTravellButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TravelActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button catClothButton = findViewById(R.id.button_cat_cloth);
+        catClothButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, ClothingActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         Button likeAllButton = findViewById(R.id.may_like_all);
         likeAllButton.setOnClickListener(new View.OnClickListener() {
@@ -135,9 +208,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
-
-
-
     }
+
 
 }

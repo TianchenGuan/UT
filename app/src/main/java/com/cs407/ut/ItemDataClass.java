@@ -44,7 +44,7 @@ public class ItemDataClass {
     }
 
     public void setItemCategory(String itemCategory) {
-        this.itemPrice = itemCategory;
+        this.itemCategory = itemCategory;
     }
 
     public ItemDataClass(String itmeName, String imageURL, String itemDescriptions, String itemPrice, String itemCategory) {
