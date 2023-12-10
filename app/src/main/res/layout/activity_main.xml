@@ -148,31 +148,12 @@
 
 
     <TextView
-        android:id="@+id/recent_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="380dp"
-        android:layout_marginLeft="15dp"
-        android:text="Your rencently viewed items: "
-        android:textSize="18sp"
-        android:textStyle="bold"/>
-
-    <Button
-        android:id="@+id/recent_view_all"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="320dp"
-        android:layout_marginTop="370dp"
-        android:backgroundTint="@color/logoGreen"
-        android:text="See All"
-        android:textColor="@color/white" />
-
-    <TextView
         android:id="@+id/may_like"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="510dp"
+        android:layout_marginTop="100dp"
         android:layout_marginLeft="15dp"
+        android:layout_below="@id/categories"
         android:text="You may like: "
         android:textSize="18sp"
         android:textStyle="bold"/>
@@ -189,9 +170,9 @@
         android:id="@+id/may_like_all"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/recent_view_all"
+        android:layout_below="@id/buttonLayout_cat"
         android:layout_marginLeft="150dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/logoGreen"
         android:text="See All"
         android:textColor="@color/white" />
