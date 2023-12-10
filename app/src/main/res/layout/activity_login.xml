@@ -27,9 +27,20 @@
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="250dp"
         android:backgroundTint="@color/lightGreen"
         android:textColor="@color/black" />
 
+    <ProgressBar
+        android:id="@+id/progressBarLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="250dp"
+        android:backgroundTint="@color/lightGreen"
+        android:textColor="@color/black"
+        android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
