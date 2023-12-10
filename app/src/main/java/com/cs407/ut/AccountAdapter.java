@@ -1,6 +1,7 @@
 package com.cs407.ut;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,19 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.MyViewHo
                 .load(dataList.get(position).getImageURL())
                 .into(holder.recyclerImage);
         holder.recyclerName.setText(dataList.get(position).getItmeName());
+
+        ItemDataClass item = dataList.get(position);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("title", item.getItmeName());
+                intent.putExtra("price", item.getItemPrice());
+                intent.putExtra("description", item.getItemDescriptions());
+                context.startActivity(intent);
+            }
+        });
     }
 
 

@@ -57,15 +57,15 @@
         android:textSize="20sp"
         android:textStyle="bold"/>
 
-    <TextView
-        android:id="@+id/tilte_pre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:layout_marginLeft="15dp"
-        android:text="Previously viewed in this category: "
-        android:textSize="20sp"
-        android:textStyle="bold"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@id/tiltle"
+        android:layout_above="@id/bottomNavigationBar"
+        android:layout_marginTop="8dp" />
+
+
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
