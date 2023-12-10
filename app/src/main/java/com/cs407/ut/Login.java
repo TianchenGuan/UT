@@ -78,6 +78,7 @@ public class Login extends AppCompatActivity {
                 Intent intent = new Intent(Login.this, Login.class);
                 startActivity(intent);
                 System.out.println("Login Failed");
+                System.out.println(e);
             }
         }
     }
