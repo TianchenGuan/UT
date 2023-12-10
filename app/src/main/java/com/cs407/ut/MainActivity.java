@@ -34,6 +34,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Button bymButton = findViewById(R.id.button_bym);
+        bymButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, BymActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button saveListButton = findViewById(R.id.button_saved);
+        saveListButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SavedListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button mycartButton = findViewById(R.id.categories_all);
+        mycartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MycartActivity.class);
+                startActivity(intent);
+            }
+        });
+
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
         int permission = ActivityCompat.checkSelfPermission(this.getApplicationContext(),
@@ -107,6 +134,8 @@ public class MainActivity extends AppCompatActivity {
 
             return false;
         });
+
+
 
 
     }
