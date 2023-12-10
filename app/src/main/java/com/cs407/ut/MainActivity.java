@@ -163,14 +163,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button viewAllButton = findViewById(R.id.recent_view_all);
-        viewAllButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ViewAll.class);
-                startActivity(intent);
-            }
-        });
+
 
         Button likeAllButton = findViewById(R.id.may_like_all);
         likeAllButton.setOnClickListener(new View.OnClickListener() {
