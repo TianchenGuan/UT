@@ -69,7 +69,8 @@
             android:background="@color/logoGreen"
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp"
-            android:text="发送"
+            android:fontFamily="@font/luckiestguy"
+            android:text="Send"
 
             android:textColor="@color/white" />
     </LinearLayout>

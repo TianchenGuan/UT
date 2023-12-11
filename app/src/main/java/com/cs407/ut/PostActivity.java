@@ -50,19 +50,18 @@ public class PostActivity extends AppCompatActivity {
         binding.customProductSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                标题+分类+图片
                 String title = binding.customProductName.getText().toString();
                 String type = binding.customProductPrice.getSelectedItem().toString();
                 String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(System.currentTimeMillis());
                 if (title.isEmpty()) {
-                    Toast.makeText(PostActivity.this, "请输入标题", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostActivity.this, "Title required", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (image.isEmpty()) {
-                    Toast.makeText(PostActivity.this, "请传入图片", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PostActivity.this, "Image required", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                Database.get(PostActivity.this).addPost(title, type, date, image, "张三", 0);
+                Database.get(PostActivity.this).addPost(title, type, date, image, "John", 0);
                 startActivity(new Intent(PostActivity.this, Group.class));
                 finish();
             }
