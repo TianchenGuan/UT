@@ -60,7 +60,7 @@ public class MessageListActivity extends AppCompatActivity {
                 com.cs407.ut.bean.Message message = new com.cs407.ut.bean.Message();
                 message.userid = Database.get(MessageListActivity.this).getLoginUserId();
                 message.chatId = chatId;
-                message.username = "张三";
+                message.username = "Me";
                 message.content = content;
                 Database.get(MessageListActivity.this)
                         .addMessage(message);

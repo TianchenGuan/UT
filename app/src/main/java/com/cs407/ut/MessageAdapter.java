@@ -39,7 +39,7 @@ public class MessageAdapter extends RecyclerView.Adapter<MessageAdapter.ViewHold
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        // 视图元素初始化
+
 
         public ViewHolder(View itemView) {
             super(itemView);
