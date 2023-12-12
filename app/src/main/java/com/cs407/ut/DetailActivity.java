@@ -19,15 +19,17 @@ import android.widget.Toast;
 
 import com.google.firebase.FirebaseApp;
 public class DetailActivity extends AppCompatActivity {
+    private ItemDataClass currentItem;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
+        currentItem = new ItemDataClass();
 
         Button saveButton = findViewById(R.id.button_save);
         saveButton.setOnClickListener(v -> {
-            saveItem();
+            saveItem(currentItem);
         });
 
         Button backButton = findViewById(R.id.button_back);
@@ -50,6 +52,11 @@ public class DetailActivity extends AppCompatActivity {
             String description = extras.getString("description");
             String category = extras.getString("category");
 
+            currentItem.setItmeName(title);
+            currentItem.setItemPrice(price);
+            currentItem.setItemDescriptions(description);
+            currentItem.setItemCategory(category);
+
             titleView.setText(title);
             priceView.setText(price);
             descriptionView.setText(description);
@@ -57,15 +64,17 @@ public class DetailActivity extends AppCompatActivity {
         }
     }
 
-    private void saveItem() {
-        String title = getIntent().getStringExtra("title");
+    private void saveItem(ItemDataClass item) {
+        if (item != null && item.getItmeName() != null && !item.getItmeName().isEmpty()) {
+            SharedPreferences prefs = getSharedPreferences("SavedItems", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(item.getItmeName(), true); // Use item name as key
+            editor.apply();
 
-        SharedPreferences sharedPreferences = getSharedPreferences("SavedItems", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(title, title);
-        editor.apply();
-
-        Toast.makeText(this, "Item saved", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, item.getItmeName() + " saved!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Error: Item is not available", Toast.LENGTH_SHORT).show();
+        }
     }
 }
 

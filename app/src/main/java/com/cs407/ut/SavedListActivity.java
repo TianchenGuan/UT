@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 
 import android.content.Intent;
@@ -33,10 +34,19 @@ public class SavedListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<ItemDataClass> dataList;
     AccountAdapter adapter;
-    final private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
+    //final private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_list);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        dataList = new ArrayList<>();
+        adapter = new AccountAdapter(dataList, this);
+        recyclerView.setAdapter(adapter);
+
+        loadSavedItems();
 
         Button cleanButton = findViewById(R.id.button_clean_all);
         cleanButton.setOnClickListener(new View.OnClickListener() {
@@ -57,9 +67,6 @@ public class SavedListActivity extends AppCompatActivity {
         });
 
 
-
-        adapter.notifyDataSetChanged();
-
         Button editButton = findViewById(R.id.button_edit);
         editButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +75,8 @@ public class SavedListActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationBar);
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
@@ -104,6 +113,46 @@ public class SavedListActivity extends AppCompatActivity {
         });
 
     }
+
+    private void loadSavedItems() {
+        SharedPreferences prefs = getSharedPreferences("SavedItems", MODE_PRIVATE);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<ItemDataClass> allItems = new ArrayList<>();
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        ItemDataClass item = snapshot.getValue(ItemDataClass.class);
+                        if (item != null) {
+                            allItems.add(item);
+                        }
+                    }
+                }
+                filterAndDisplaySavedItems(allItems, prefs);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(SavedListActivity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void filterAndDisplaySavedItems(List<ItemDataClass> allItems, SharedPreferences prefs) {
+        dataList.clear();
+        for (ItemDataClass item : allItems) {
+            if (prefs.contains(item.getItmeName()) && prefs.getAll().get(item.getItmeName()) instanceof Boolean) {
+                boolean isSaved = prefs.getBoolean(item.getItmeName(), false);
+                if (isSaved) {
+                    dataList.add(item);
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
+
 
 }
 

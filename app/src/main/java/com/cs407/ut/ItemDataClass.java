@@ -3,8 +3,18 @@ package com.cs407.ut;
 public class ItemDataClass {
     private String itmeName, imageURL, itemDescriptions, itemPrice, itemCategory;
 
+    private boolean isSaved;
+
     public ItemDataClass(){
 
+    }
+
+    public boolean isSaved() {
+        return isSaved;
+    }
+
+    public void setSaved(boolean saved) {
+        isSaved = saved;
     }
 
     public String getItmeName() {
