@@ -7,6 +7,8 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
@@ -28,6 +30,10 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.FirebaseApp;
 
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.OnFailureListener;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -39,10 +45,15 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
 
 import android.content.Intent;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     private GoogleMap mMap;
@@ -54,10 +65,57 @@ public class MainActivity extends AppCompatActivity {
     AccountAdapter adapter;
     final private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        TextView locationTextView = findViewById(R.id.locationText);
+
+        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
+
+        int permission = ActivityCompat.checkSelfPermission(this.getApplicationContext(),
+                Manifest.permission.ACCESS_FINE_LOCATION);
+
+        if(permission == PackageManager.PERMISSION_DENIED){
+            System.out.println("Getting permission");
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
+                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
+        }else{
+            LocationRequest locationRequest = LocationRequest.create();
+            locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+            locationRequest.setInterval(10000);
+            locationRequest.setFastestInterval(5000);
+
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                // Consider calling ActivityCompat#requestPermissions here
+                return;
+            }
+
+            mFusedLocationProviderClient.getCurrentLocation(locationRequest.getPriority(), null)
+                    .addOnSuccessListener(this, location -> {
+                        if (location != null) {
+                            if (location != null) {
+                                Geocoder geocoder = new Geocoder(MainActivity.this, Locale.getDefault());
+                                try {
+                                    List<Address> addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
+                                    if (addresses != null && !addresses.isEmpty()) {
+                                        String cityName = addresses.get(0).getLocality();
+                                        String locationStr = "Location: " + cityName;
+                                        locationTextView.setText(locationStr);
+                                    }
+                                } catch (IOException e) {
+                                    Log.e("MainActivity", "Unable to get city name", e);
+                                    locationTextView.setText("Location: [Unavailable]");
+                                }
+                            }
+                        }
+                    })
+                    .addOnFailureListener(this, e -> Log.w("MainActivity", "Error trying to get current GPS location", e));
+        }
+
 
         Button bymButton = findViewById(R.id.button_bym);
         bymButton.setOnClickListener(new View.OnClickListener() {
@@ -100,19 +158,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(this);
 
-        int permission = ActivityCompat.checkSelfPermission(this.getApplicationContext(),
-                Manifest.permission.ACCESS_FINE_LOCATION);
-
-        if(permission == PackageManager.PERMISSION_DENIED){
-            System.out.println("Getting permission");
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-                    PERMISSIONS_REQUEST_ACCESS_FINE_LOCATION);
-        }else{
-            System.out.println("Got permission");
-        }
         Button categoriesAllButton = findViewById(R.id.categories_all);
         categoriesAllButton.setOnClickListener(new View.OnClickListener() {
             @Override
