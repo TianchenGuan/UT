@@ -18,6 +18,7 @@ import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -129,6 +130,15 @@ public class AddItem extends AppCompatActivity {
                 }else{
                     Toast.makeText(AddItem.this, "Please select image", Toast.LENGTH_SHORT).show();
                 }
+            }
+        });
+
+        ImageButton backButton = findViewById(R.id.addItem_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(AddItem.this, MainActivity.class);
+                startActivity(intent);
             }
         });
     }
