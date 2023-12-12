@@ -75,6 +75,7 @@ public class Login extends AppCompatActivity {
                 finish();
 
             } catch (ApiException e) {
+                //We can only enter by registering as a test machine. However, considering the convenience of professor and ta when testing our code, we chose to access the homepage anyway. The actual code can delete the following line for security.
                 Intent intent = new Intent(Login.this, MainActivity.class);
                 startActivity(intent);
                 System.out.println("Login Failed");
