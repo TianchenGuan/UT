@@ -32,6 +32,11 @@ public class DetailActivity extends AppCompatActivity {
             saveItem(currentItem);
         });
 
+        Button addButton = findViewById(R.id.button_add);
+        saveButton.setOnClickListener(v -> {
+            addItem(currentItem);
+        });
+
         Button backButton = findViewById(R.id.button_back);
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +77,19 @@ public class DetailActivity extends AppCompatActivity {
             editor.apply();
 
             Toast.makeText(this, item.getItmeName() + " saved!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Error: Item is not available", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void addItem(ItemDataClass item) {
+        if (item != null && item.getItmeName() != null && !item.getItmeName().isEmpty()) {
+            SharedPreferences prefs = getSharedPreferences("addItems", MODE_PRIVATE);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean(item.getItmeName(), true); // Use item name as key
+            editor.apply();
+
+            Toast.makeText(this, item.getItmeName() + " added in your cart!", Toast.LENGTH_SHORT).show();
         } else {
             Toast.makeText(this, "Error: Item is not available", Toast.LENGTH_SHORT).show();
         }
