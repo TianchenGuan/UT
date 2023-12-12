@@ -42,7 +42,7 @@ public class ToyActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         dataList = new ArrayList<>();
-        adapter = new AccountAdapter(dataList, this);
+        adapter = new AccountAdapter(dataList, this, item -> {});
         recyclerView.setAdapter(adapter);
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");

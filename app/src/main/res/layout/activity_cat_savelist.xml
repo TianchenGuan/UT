@@ -44,113 +44,21 @@
         android:textStyle="bold"
         android:textSize="18sp" />
 
-    <TextView
-        android:id="@+id/tiltle_toy"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/button_back"
-        android:text="Toys: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/button_back">
 
-    <TextView
-        android:id="@+id/tiltle_art"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/tiltle_toy"
-        android:text="Art and Crafts: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"/>
 
-    <TextView
-        android:id="@+id/tiltle_book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/tiltle_art"
-        android:text="Books and Magazines: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"/>
-
-    <TextView
-        android:id="@+id/tiltle_clothing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/tiltle_book"
-        android:text="Clothing: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"/>
-
-    <TextView
-        android:id="@+id/tiltle_electronics"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/tiltle_clothing"
-        android:text="Electronics: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"/>
-
-    <TextView
-        android:id="@+id/tiltle_home"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/tiltle_electronics"
-        android:text="Home and Garden: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"/>
-
-    <TextView
-        android:id="@+id/tiltle_travel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/tiltle_home"
-        android:text="Travel: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"/>
-
-    <TextView
-        android:id="@+id/tiltle_beauty"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/tiltle_travel"
-        android:text="Health and Beauty: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"/>
-
-    <TextView
-        android:id="@+id/tiltle_else"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginLeft="10dp"
-        android:layout_below="@id/tiltle_beauty"
-        android:text="Everything else: "
-        android:textSize="10sp"
-        android:textStyle="bold"
-        android:layout_marginEnd="20dp"/>
+        <LinearLayout
+            android:id="@+id/categoryLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+        </LinearLayout>
+    </ScrollView>
 
 
 

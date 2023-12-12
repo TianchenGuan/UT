@@ -41,7 +41,7 @@ public class SearchResultsActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         dataList = new ArrayList<>();
-        adapter = new AccountAdapter(dataList, this);
+        adapter = new AccountAdapter(dataList, this, item -> {});
         recyclerView.setAdapter(adapter);
 
         databaseReference.addValueEventListener(new ValueEventListener() {

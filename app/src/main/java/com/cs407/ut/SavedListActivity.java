@@ -34,6 +34,9 @@ public class SavedListActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ArrayList<ItemDataClass> dataList;
     AccountAdapter adapter;
+
+
+    private boolean isEditMode = false;
     //final private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +46,20 @@ public class SavedListActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         dataList = new ArrayList<>();
-        adapter = new AccountAdapter(dataList, this);
+        adapter = new AccountAdapter(dataList, this, item -> {});
+        recyclerView.setAdapter(adapter);
+
+
+        adapter = new AccountAdapter(dataList, this, new AccountAdapter.OnItemRemoveListener() {
+            @Override
+            public void onItemRemoved(ItemDataClass item) {
+                SharedPreferences prefs = getSharedPreferences("SavedItems", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.remove(item.getItmeName());
+                editor.apply();
+            }
+        });
+
         recyclerView.setAdapter(adapter);
 
         loadSavedItems();
@@ -52,8 +68,8 @@ public class SavedListActivity extends AppCompatActivity {
         cleanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SavedListActivity.this, SavedListActivity.class);
-                startActivity(intent);
+                clearSavedItems();
+                loadSavedItems();
             }
         });
 
@@ -68,12 +84,10 @@ public class SavedListActivity extends AppCompatActivity {
 
 
         Button editButton = findViewById(R.id.button_edit);
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(SavedListActivity.this, SavedListActivity.class);
-                startActivity(intent);
-            }
+        editButton.setOnClickListener(view -> {
+            isEditMode = !isEditMode;
+            adapter.setEditMode(isEditMode);
+            editButton.setText(isEditMode ? "Done" : "Edit");
         });
 
 
@@ -150,6 +164,15 @@ public class SavedListActivity extends AppCompatActivity {
                 }
             }
         }
+        adapter.notifyDataSetChanged();
+    }
+
+    private void clearSavedItems() {
+        SharedPreferences prefs = getSharedPreferences("SavedItems", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.apply();
+        dataList.clear();
         adapter.notifyDataSetChanged();
     }
 

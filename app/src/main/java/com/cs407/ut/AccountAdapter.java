@@ -2,6 +2,7 @@ package com.cs407.ut;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +20,21 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.MyViewHo
     private ArrayList<ItemDataClass> dataList;
     private Context context;
 
-    public AccountAdapter(ArrayList<ItemDataClass> dataList, Context context) {
+    private boolean isEditMode = false;
+    private OnItemRemoveListener removeListener;
+
+    public interface OnItemRemoveListener {
+        void onItemRemoved(ItemDataClass item);
+    }
+
+    public AccountAdapter(ArrayList<ItemDataClass> dataList, Context context, OnItemRemoveListener removeListener) {
         this.dataList = dataList;
         this.context = context;
+        this.removeListener = removeListener;
+    }
+
+    public void setEditMode(boolean isEditMode) {
+        this.isEditMode = isEditMode;
     }
 
     @NonNull
@@ -40,9 +53,24 @@ public class AccountAdapter extends RecyclerView.Adapter<AccountAdapter.MyViewHo
 
         ItemDataClass item = dataList.get(position);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        holder.itemView.setOnClickListener(v -> {
+            if (isEditMode) {
+                // Remove the item from the list and notify the adapter
+                dataList.remove(position);
+                notifyItemRemoved(position);
+
+                // Notify the activity (or fragment) to handle additional removal logic
+                if (removeListener != null) {
+                    removeListener.onItemRemoved(item);
+                }
+
+                // Remove the item from SharedPreferences
+                SharedPreferences prefs = context.getSharedPreferences("SavedItems", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.remove(item.getItmeName());
+                editor.apply();
+            } else {
+                // Normal behavior - start DetailActivity with item details
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra("title", item.getItmeName());
                 intent.putExtra("price", item.getItemPrice());
