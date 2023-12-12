@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -71,6 +73,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SavedListActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        //Search Part
+        ImageButton searchButton = findViewById(R.id.main_search_button);
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EditText searchInput = findViewById(R.id.search_anything);
+                String query = searchInput.getText().toString().trim();
+
+                Intent intent = new Intent(MainActivity.this, SearchResultsActivity.class);
+                intent.putExtra("searchQuery", query);
                 startActivity(intent);
             }
         });
@@ -212,3 +228,5 @@ public class MainActivity extends AppCompatActivity {
 
 
 }
+
+

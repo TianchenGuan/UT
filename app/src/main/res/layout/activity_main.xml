@@ -80,18 +80,34 @@
             android:textColor="@color/white" />
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/search_anything"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/buttonLayout"
-        android:background="@drawable/edit_text_border"
-        android:backgroundTint="#D9F4EF"
-        android:drawablePadding="10dp"
-        android:hint="Search for anything"
-        android:textColorHint="@color/darkLogoGreen"
-        android:inputType="text"
-        android:padding="16dp" />
+        android:padding="8dp">
+
+        <EditText
+            android:id="@+id/search_anything"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/main_search_button"
+            android:background="@drawable/edit_text_border"
+            android:backgroundTint="#D9F4EF"
+            android:drawablePadding="10dp"
+            android:hint="Search for anything"
+            android:textColorHint="@color/darkLogoGreen"
+            android:inputType="text"
+            android:padding="16dp" />
+
+        <ImageButton
+            android:id="@+id/main_search_button"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentRight="true"
+            android:backgroundTint="@color/logoGreen"
+            android:src="@drawable/baseline_search_24" />
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/categories"

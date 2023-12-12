@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" package="com.cs407.ut">
-    
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.cs407.ut">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,26 +18,29 @@
         android:theme="@style/Theme.UT"
         tools:targetApi="31">
         <activity
+            android:name=".SearchResultsActivity"
+            android:exported="false" />
+        <activity
             android:name=".PostActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".MessageListActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Help"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Sell"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Purchase"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".AddItem"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".AccountMyPost"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".Account"
             android:exported="false" />
@@ -52,57 +56,23 @@
         <activity
             android:name=".SignUp"
             android:exported="false" />
-        <activity
-            android:name=".Category" />
-        <activity
-            android:name=".ToyActivity" />
-
-        <activity
-            android:name=".ArtCraftActivity" />
-
-        <activity
-            android:name=".BookMagazineActivity" />
-
-        <activity
-            android:name=".ClothingActivity" />
-
-        <activity
-            android:name=".ElectronicsActivity" />
-
-        <activity
-            android:name=".ElseActivity" />
-
-        <activity
-            android:name=".DetailActivity" />
-
-        <activity
-            android:name=".HealthBeautyActivity" />
-
-        <activity
-            android:name=".HomeGardenActivity" />
-
-        <activity
-            android:name=".TravelActivity" />
-
-        <activity
-            android:name=".LikeAll" />
-
-        <activity
-            android:name=".ViewAll" />
-
-        <activity
-            android:name=".BymActivity" />
-
-        <activity
-            android:name=".CatForSavedListActivity" />
-
-        <activity
-            android:name=".MycartActivity" />
-
-        <activity
-            android:name=".SavedListActivity" />
-
-
+        <activity android:name=".Category" />
+        <activity android:name=".ToyActivity" />
+        <activity android:name=".ArtCraftActivity" />
+        <activity android:name=".BookMagazineActivity" />
+        <activity android:name=".ClothingActivity" />
+        <activity android:name=".ElectronicsActivity" />
+        <activity android:name=".ElseActivity" />
+        <activity android:name=".DetailActivity" />
+        <activity android:name=".HealthBeautyActivity" />
+        <activity android:name=".HomeGardenActivity" />
+        <activity android:name=".TravelActivity" />
+        <activity android:name=".LikeAll" />
+        <activity android:name=".ViewAll" />
+        <activity android:name=".BymActivity" />
+        <activity android:name=".CatForSavedListActivity" />
+        <activity android:name=".MycartActivity" />
+        <activity android:name=".SavedListActivity" />
         <activity
             android:name=".Login"
             android:exported="true"
@@ -113,7 +83,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
