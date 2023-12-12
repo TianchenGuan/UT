@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button mycartButton = findViewById(R.id.categories_all);
+        Button mycartButton = findViewById(R.id.button_mycart);
         mycartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -27,13 +27,14 @@ public class DetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
         currentItem = new ItemDataClass();
 
+
         Button saveButton = findViewById(R.id.button_save);
         saveButton.setOnClickListener(v -> {
             saveItem(currentItem);
         });
 
         Button addButton = findViewById(R.id.button_add);
-        saveButton.setOnClickListener(v -> {
+        addButton.setOnClickListener(v -> {
             addItem(currentItem);
         });
 

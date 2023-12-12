@@ -30,26 +30,50 @@ import android.widget.Toast;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MycartActivity extends AppCompatActivity {
+
+    RecyclerView recyclerView;
+    ArrayList<ItemDataClass> dataList;
+    AccountAdapter adapter;
+    private boolean isEditMode = false;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_cart);
+
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        dataList = new ArrayList<>();
+        adapter = new AccountAdapter(dataList, this, item -> {});
+        recyclerView.setAdapter(adapter);
+
+        adapter = new AccountAdapter(dataList, this, new AccountAdapter.OnItemRemoveListener() {
+            @Override
+            public void onItemRemoved(ItemDataClass item) {
+                SharedPreferences prefs = getSharedPreferences("addItems", MODE_PRIVATE);
+                SharedPreferences.Editor editor = prefs.edit();
+                editor.remove(item.getItmeName());
+                editor.apply();
+            }
+        });
+        recyclerView.setAdapter(adapter);
+
+        loadAddedItems();
 
         Button cleanButton = findViewById(R.id.button_clean_all);
         cleanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MycartActivity.this, MycartActivity.class);
-                startActivity(intent);
+                clearAddedItems();
+                loadAddedItems();
             }
         });
 
+
         Button editButton = findViewById(R.id.button_edit);
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MycartActivity.this, MycartActivity.class);
-                startActivity(intent);
-            }
+        editButton.setOnClickListener(view -> {
+            isEditMode = !isEditMode;
+            adapter.setEditMode(isEditMode);
+            editButton.setText(isEditMode ? "Done" : "Edit");
         });
 
 
@@ -87,6 +111,53 @@ public class MycartActivity extends AppCompatActivity {
             return false;
         });
 
+    }
+    private void loadAddedItems() {
+        SharedPreferences prefs = getSharedPreferences("addItems", MODE_PRIVATE);
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
+
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                List<ItemDataClass> allItems = new ArrayList<>();
+                if (dataSnapshot.exists()) {
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        ItemDataClass item = snapshot.getValue(ItemDataClass.class);
+                        if (item != null) {
+                            allItems.add(item);
+                        }
+                    }
+                }
+                filterAndDisplayAddedItems(allItems, prefs);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(MycartActivity.this, "Database error: " + databaseError.getMessage(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void filterAndDisplayAddedItems(List<ItemDataClass> allItems, SharedPreferences prefs) {
+        dataList.clear();
+        for (ItemDataClass item : allItems) {
+            if (prefs.contains(item.getItmeName()) && prefs.getAll().get(item.getItmeName()) instanceof Boolean) {
+                boolean isAdded = prefs.getBoolean(item.getItmeName(), false);
+                if (isAdded) {
+                    dataList.add(item);
+                }
+            }
+        }
+        adapter.notifyDataSetChanged();
+    }
+
+    private void clearAddedItems() {
+        SharedPreferences prefs = getSharedPreferences("addItems", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.clear();
+        editor.apply();
+        dataList.clear();
+        adapter.notifyDataSetChanged();
     }
 
 }
