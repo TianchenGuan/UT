@@ -84,7 +84,7 @@
             android:background="#91C2F3"
             android:gravity="center"
             android:paddingHorizontal="15dp"
-            android:text="Hellow"
+            android:text="Hello"
             android:textColor="#000" />
 
 
