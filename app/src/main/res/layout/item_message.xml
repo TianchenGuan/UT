@@ -84,7 +84,7 @@
             android:background="#91C2F3"
             android:gravity="center"
             android:paddingHorizontal="15dp"
-            android:text="你好"
+            android:text="Hellow"
             android:textColor="#000" />
 
 
