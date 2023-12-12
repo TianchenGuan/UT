@@ -54,6 +54,9 @@
             android:name=".SignIn"
             android:exported="false" />
         <activity
+            android:name=".Payment"
+            android:exported="false" />
+        <activity
             android:name=".SignUp"
             android:exported="false" />
         <activity android:name=".Category" />

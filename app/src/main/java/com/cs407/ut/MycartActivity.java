@@ -68,6 +68,17 @@ public class MycartActivity extends AppCompatActivity {
             }
         });
 
+        Button payButton = findViewById(R.id.button_pay);
+        payButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                double totalPrice = calculateTotalPrice();
+                Intent intent = new Intent(MycartActivity.this, Payment.class);
+                intent.putExtra("totalPrice", totalPrice);
+                startActivity(intent);
+            }
+        });
+
 
         Button editButton = findViewById(R.id.button_edit);
         editButton.setOnClickListener(view -> {
@@ -158,6 +169,14 @@ public class MycartActivity extends AppCompatActivity {
         editor.apply();
         dataList.clear();
         adapter.notifyDataSetChanged();
+    }
+
+    private double calculateTotalPrice() {
+        double totalPrice = 0.0;
+        for (ItemDataClass item : dataList) {
+            totalPrice += Double.parseDouble(item.getItemPrice());
+        }
+        return totalPrice;
     }
 
 }
